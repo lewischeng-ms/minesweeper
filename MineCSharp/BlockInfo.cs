@@ -12,7 +12,8 @@ namespace MineCSharp
             Normal,
             Digged,
             Flagged,
-            Questioned
+            Questioned,
+            MineShowed
         }
 
         // 方块的当前状态。

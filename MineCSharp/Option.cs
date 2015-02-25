@@ -16,69 +16,51 @@ namespace MineCSharp
             InitializeComponent();
         }
 
-        private void mnuCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void mnuOk_Click(object sender, EventArgs e)
         {
-            if (rbBeginning.Checked)
+            if (rbBeginner.Checked)
             {
-                GameData.RowCount = 9;
-                GameData.ColCount = 9;
-                GameData.MineCount = 10;
+                StaticData.Level = StaticData.Levels.Beginner;
             }
             else if (rbIntermediate.Checked)
             {
-                GameData.RowCount = 16;
-                GameData.ColCount = 16;
-                GameData.MineCount = 40;
+                StaticData.Level = StaticData.Levels.Intermediate;
             }
             else if (rbAdvanced.Checked)
             {
-                GameData.RowCount = 16;
-                GameData.ColCount = 30;
-                GameData.MineCount = 99;
+                StaticData.Level = StaticData.Levels.Advanced;
             }
-            GameData.SafeCount = GameData.RowCount * GameData.ColCount - GameData.MineCount;
+            else if (rbRP.Checked)
+            {
+                StaticData.Level = StaticData.Levels.RP;
+            }
+            else if (rbSuperRP.Checked)
+            {
+                StaticData.Level = StaticData.Levels.SuperRP;
+            }
             this.Close();
         }
 
         private void Option_Load(object sender, EventArgs e)
         {
-            switch (GameData.ColCount)
+            switch (StaticData.Level)
             {
-                case 9:
-                    rbBeginning.Checked = true;
+                case StaticData.Levels.Beginner:
+                    rbBeginner.Checked = true;
                     break;
-                case 16:
+                case StaticData.Levels.Intermediate:
                     rbIntermediate.Checked = true;
                     break;
-                case 30:
+                case StaticData.Levels.Advanced:
                     rbAdvanced.Checked = true;
                     break;
+                case StaticData.Levels.RP:
+                    rbRP.Checked = true;
+                    break;
+                case StaticData.Levels.SuperRP:
+                    rbSuperRP.Checked = true;
+                    break;
             }
-        }
-
-        private void pictureBox1_DoubleClick(object sender, EventArgs e)
-        {
-            MessageBox.Show("人品模式开启，有240/480个雷！");
-            GameData.RowCount = 16;
-            GameData.ColCount = 30;
-            GameData.MineCount = 240;
-            GameData.SafeCount = GameData.RowCount * GameData.ColCount - GameData.MineCount;
-            this.Close();
-        }
-
-        private void pictureBox2_DoubleClick(object sender, EventArgs e)
-        {
-            MessageBox.Show("极品人品模式开启，有479/480个雷！");
-            GameData.RowCount = 16;
-            GameData.ColCount = 30;
-            GameData.MineCount = 479;
-            GameData.SafeCount = 1;
-            this.Close();
         }
     }
 }

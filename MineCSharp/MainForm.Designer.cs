@@ -42,8 +42,10 @@
             this.mnuViewHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.pbCheat = new System.Windows.Forms.PictureBox();
+            this.lblTimeElapsed = new System.Windows.Forms.Label();
+            this.lblRemainCount = new System.Windows.Forms.Label();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheat)).BeginInit();
             this.SuspendLayout();
@@ -143,32 +145,59 @@
             this.mnuAbout.Text = "关于 Mine C#版 (&A)";
             this.mnuAbout.Click += new System.EventHandler(this.mnuAbout_Click);
             // 
-            // timer1
+            // gameTimer
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.gameTimer.Interval = 1000;
+            this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
             // pbCheat
             // 
-            this.pbCheat.Location = new System.Drawing.Point(222, 28);
+            this.pbCheat.Location = new System.Drawing.Point(0, 28);
             this.pbCheat.Name = "pbCheat";
-            this.pbCheat.Size = new System.Drawing.Size(10, 10);
+            this.pbCheat.Size = new System.Drawing.Size(15, 14);
             this.pbCheat.TabIndex = 1;
             this.pbCheat.TabStop = false;
             this.pbCheat.DoubleClick += new System.EventHandler(this.pbCheat_Click);
+            // 
+            // lblTimeElapsed
+            // 
+            this.lblTimeElapsed.AutoSize = true;
+            this.lblTimeElapsed.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTimeElapsed.ForeColor = System.Drawing.Color.White;
+            this.lblTimeElapsed.Location = new System.Drawing.Point(12, 30);
+            this.lblTimeElapsed.Name = "lblTimeElapsed";
+            this.lblTimeElapsed.Size = new System.Drawing.Size(113, 14);
+            this.lblTimeElapsed.TabIndex = 2;
+            this.lblTimeElapsed.Text = "已用时间：0 秒";
+            // 
+            // lblRemainCount
+            // 
+            this.lblRemainCount.AutoSize = true;
+            this.lblRemainCount.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblRemainCount.ForeColor = System.Drawing.Color.White;
+            this.lblRemainCount.Location = new System.Drawing.Point(167, 30);
+            this.lblRemainCount.Name = "lblRemainCount";
+            this.lblRemainCount.Size = new System.Drawing.Size(121, 14);
+            this.lblRemainCount.TabIndex = 3;
+            this.lblRemainCount.Text = "剩余雷数：40 个";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(575, 429);
+            this.Controls.Add(this.lblRemainCount);
+            this.Controls.Add(this.lblTimeElapsed);
             this.Controls.Add(this.pbCheat);
             this.Controls.Add(this.mainMenu);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenu;
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.Text = "扫雷【中级】";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCheat)).EndInit();
@@ -191,8 +220,10 @@
         private System.Windows.Forms.ToolStripMenuItem mnuViewHelp;
         private System.Windows.Forms.ToolStripSeparator mnuSeparator3;
         private System.Windows.Forms.ToolStripMenuItem mnuAbout;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.PictureBox pbCheat;
+        private System.Windows.Forms.Label lblTimeElapsed;
+        private System.Windows.Forms.Label lblRemainCount;
     }
 }
 
